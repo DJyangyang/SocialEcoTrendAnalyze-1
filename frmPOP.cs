@@ -358,11 +358,13 @@ namespace SocialEcoTrendAnalyze
         private void btnStart_Click(object sender, EventArgs e)
         {
             LoadHistoryData();
+            btnSimulate.Enabled = true;
         }
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
             LoadSimulationData();
+            btnStart.Enabled = false;           //把开始按钮false掉，以免再点开始出现BUG。
         }
     }
 }
