@@ -1,0 +1,11 @@
+D:\77211356\GitHub\SocialEcoTrendAnalyze\bin\Debug\SocialEcoTrendAnalyze.dll
+D:\77211356\GitHub\SocialEcoTrendAnalyze\bin\Debug\SocialEcoTrendAnalyze.pdb
+D:\77211356\GitHub\SocialEcoTrendAnalyze\bin\Debug\MyPluginEngine.dll
+D:\77211356\GitHub\SocialEcoTrendAnalyze\bin\Debug\MyPluginEngine.pdb
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.csprojResolveAssemblyReference.cache
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmGDP.resources
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmPOP.resources
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmTable.resources
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.csproj.GenerateResource.Cache
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.dll
+D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.pdb
