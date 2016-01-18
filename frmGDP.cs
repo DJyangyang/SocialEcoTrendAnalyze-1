@@ -287,7 +287,7 @@ namespace SocialEcoTrendAnalyze
         private void btnSimulate_Click(object sender, EventArgs e)
         {
             loadSimulationData();
-            btnSimulate.Enabled = false;
+            btnStart.Enabled = false;           //把开始按钮false掉，以免再点开始出现BUG。
         }
     }
 }

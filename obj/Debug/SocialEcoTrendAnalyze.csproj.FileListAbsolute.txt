@@ -9,3 +9,13 @@ D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmTabl
 D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.csproj.GenerateResource.Cache
 D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.dll
 D:\77211356\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.pdb
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\bin\Debug\SocialEcoTrendAnalyze.dll
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\bin\Debug\SocialEcoTrendAnalyze.pdb
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\bin\Debug\MyPluginEngine.pdb
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.csprojResolveAssemblyReference.cache
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmGDP.resources
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmPOP.resources
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.frmTable.resources
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.csproj.GenerateResource.Cache
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.dll
+C:\Users\LILEI\Documents\GitHub\SocialEcoTrendAnalyze\obj\Debug\SocialEcoTrendAnalyze.pdb
