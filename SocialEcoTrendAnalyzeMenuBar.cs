@@ -20,7 +20,7 @@ namespace SocialEcoTrendAnalyze
 
         public long ItemCount
         {
-            get { return 2; }
+            get { return 3; }
         }
 
         public void GetItemInfo(int pos, MyPluginEngine.ItemDef itemDef)
@@ -35,10 +35,10 @@ namespace SocialEcoTrendAnalyze
                     itemDef.ID = "SocialEcoTrendAnalyze.frmPOPCmd";
                     itemDef.Group = false;
                     break;
-                //case 2:
-                //    itemDef.ID = "TrendAnalyze.frmTableCmd";
-                //    itemDef.Group = false;
-                //    break;
+                case 2:
+                    itemDef.ID = "SocialEcoTrendAnalyze.frmlandCmd";
+                    itemDef.Group = false;
+                    break;
                 default:
                     break;
 

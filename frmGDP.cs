@@ -79,6 +79,7 @@ namespace SocialEcoTrendAnalyze
             int iRow = dt.Rows.Count;
 
             GraphPane myPane = zedGraphControl1.GraphPane;
+           
             myPane.CurveList.Clear();
             myPane.GraphObjList.Clear();
 			// Set up the title and axis labels
