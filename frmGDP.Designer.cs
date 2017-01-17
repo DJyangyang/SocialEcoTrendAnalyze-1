@@ -95,7 +95,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(678, 456);
+            this.tabPage2.Size = new System.Drawing.Size(585, 433);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "数据";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.dgDataSource.Location = new System.Drawing.Point(3, 3);
             this.dgDataSource.Name = "dgDataSource";
             this.dgDataSource.RowTemplate.Height = 23;
-            this.dgDataSource.Size = new System.Drawing.Size(672, 450);
+            this.dgDataSource.Size = new System.Drawing.Size(579, 427);
             this.dgDataSource.TabIndex = 0;
             // 
             // groupBox4

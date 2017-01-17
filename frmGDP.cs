@@ -65,13 +65,13 @@ namespace SocialEcoTrendAnalyze
             if (pConn.State == ConnectionState.Closed)
                 pConn.Open();
             OleDbCommand cmd = pConn.CreateCommand();
-            cmd.CommandText = "Select id,年份,生产总值,财政总收入,人均生产总值,第一产业,第二产业,第三产业 From YNTable";
+            cmd.CommandText = "Select id,年份,生产总值,财政总收入,人均生产总值,第一产业,第二产业,第三产业 From GDP";
             OleDbDataAdapter oda = new OleDbDataAdapter(cmd);
             DataSet ds = new DataSet();
-            oda.Fill(ds, "YNTable");
+            oda.Fill(ds, "GDP");
             if (dt == null)
                 dt = new DataTable();
-            dt = ds.Tables["YNTable"];
+            dt = ds.Tables["GDP"];
         }
         private void CreateMutiLineChart()
         {
@@ -84,7 +84,7 @@ namespace SocialEcoTrendAnalyze
             myPane.CurveList.Clear();
             myPane.GraphObjList.Clear();
 			// Set up the title and axis labels
-            myPane.Title.Text = "GDP 趋势模拟";
+            myPane.Title.Text = "GDP变化趋势模拟";
 			myPane.XAxis.Title.Text = "年份";
 			myPane.YAxis.Title.Text = "GDP 亿元";
 
@@ -113,8 +113,10 @@ namespace SocialEcoTrendAnalyze
             myPane1.CurveList.Clear();
             myPane1.GraphObjList.Clear();
             myPane1.Title.Text = "财政总收入";
+            myPane1.Title.FontSpec.Size = 25;
             myPane1.XAxis.Title.Text = "年份";
             myPane1.YAxis.Title.Text = "金额  万元";
+            myPane1.YAxis.Title.FontSpec.Size = 25;
             lista = new PointPairList();
             listb = new PointPairList();
             myCurvea = myPane1.AddCurve("财政总收入",
@@ -128,6 +130,7 @@ namespace SocialEcoTrendAnalyze
             myPane1.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane1.Legend.FontSpec.Size = 25;
             myPane1.Legend.Position = ZedGraph.LegendPos.Bottom;
             myCurvea.Line.Width = 1.0F;
 
@@ -137,7 +140,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane1.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText1 = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -157,9 +160,10 @@ namespace SocialEcoTrendAnalyze
             myPane2.CurveList.Clear();
             myPane2.GraphObjList.Clear();
             myPane2.Title.Text = "人均生产总值";
+            myPane2.Title.FontSpec.Size = 25;
             myPane2.XAxis.Title.Text = "年份";
             myPane2.YAxis.Title.Text = "金额  元/人";
-
+            myPane2.YAxis.Title.FontSpec.Size = 25;
             listb = new PointPairList();
             myCurveb = myPane2.AddCurve("人均生产总值",
                listb, Color.Blue, SymbolType.Diamond);
@@ -172,6 +176,7 @@ namespace SocialEcoTrendAnalyze
             myPane2.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane2.Legend.FontSpec.Size = 25;
             myPane2.Legend.Position = ZedGraph.LegendPos.Bottom;
             myCurveb.Line.Width = 1.0F;
 
@@ -181,7 +186,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane2.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText2 = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -255,7 +260,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText = new TextObj("Interesting\nPoint", 230F, 70F);
