@@ -56,8 +56,12 @@ namespace SocialEcoTrendAnalyze
             myPane1.CurveList.Clear();
             myPane1.GraphObjList.Clear();
             myPane1.Title.Text = "城市建成区面积";
+            myPane1.Title.FontSpec.Size = 25;
             myPane1.XAxis.Title.Text = "年份";
             myPane1.YAxis.Title.Text = "面积  平方公里";
+            myPane1.YAxis.Title.FontSpec.Size = 25;
+         //   myPane1.YAxis.Scale.FontSpec.Size = 500;
+         //   myPane1.YAxis.Title.FontSpec.Size = 500;
             lista = new PointPairList();
             listb = new PointPairList();
             myCurvea = myPane1.AddCurve("城市建成区面积",
@@ -71,6 +75,7 @@ namespace SocialEcoTrendAnalyze
             myPane1.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane1.Legend.FontSpec.Size = 25;
             myPane1.Legend.Position = ZedGraph.LegendPos.Bottom;
             myCurvea.Line.Width = 1.0F;
 
@@ -79,9 +84,10 @@ namespace SocialEcoTrendAnalyze
             myCurvea.Symbol.Fill = new Fill(Color.White);
 
             // Add a background gradient fill to the axis frame
+            //myPane1.Chart.Fill = new Fill(Color.White,
+            //    Color.FromArgb(255, 255, 210), -45F);
             myPane1.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
-
+                Color.White, -45F);
             // Add a caption and an arrow
             TextObj myText1 = new TextObj("Interesting\nPoint", 230F, 70F);
             myText1.FontSpec.FontColor = Color.Red;
@@ -100,8 +106,10 @@ namespace SocialEcoTrendAnalyze
             myPane2.CurveList.Clear();
             myPane2.GraphObjList.Clear();
             myPane2.Title.Text = "城镇化率";
+            myPane2.Title.FontSpec.Size = 25;
             myPane2.XAxis.Title.Text = "年份";
             myPane2.YAxis.Title.Text = "率  %";
+            myPane2.YAxis.Title.FontSpec.Size = 25;
 
             listb = new PointPairList();
             myCurveb = myPane2.AddCurve("城镇化率",
@@ -115,7 +123,9 @@ namespace SocialEcoTrendAnalyze
             myPane2.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane2.Legend.FontSpec.Size = 25;
             myPane2.Legend.Position = ZedGraph.LegendPos.Bottom;
+ 
             myCurveb.Line.Width = 1.0F;
 
             // Increase the symbol sizes, and fill them with solid white
@@ -124,7 +134,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane2.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText2 = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -141,7 +151,7 @@ namespace SocialEcoTrendAnalyze
             #endregion
 
             // Set up the title and axis labels
-            myPane.Title.Text = "土地利用增长趋势";
+            myPane.Title.Text = "土地利用变化趋势";
             myPane.XAxis.Title.Text = "年份";
             myPane.YAxis.Title.Text = "土地  平方公里";
 
@@ -159,8 +169,8 @@ namespace SocialEcoTrendAnalyze
 
             // Generate a blue curve with circle
             // symbols, and "napop" in the legend
-            myCurve2 = myPane.AddCurve("城市建成区面积",
-                list2, Color.Blue, SymbolType.Circle);
+            //myCurve2 = myPane.AddCurve("城市建成区面积",
+            //    list2, Color.Blue, SymbolType.Circle);
              // Change the color of the title
             myPane.Title.FontSpec.FontColor = Color.Green;
              // Add gridlines to the plot, and make them gray
@@ -171,27 +181,27 @@ namespace SocialEcoTrendAnalyze
 
             // Move the legend location
             myPane.Legend.Position = ZedGraph.LegendPos.Bottom;
-
+           
             // Make both curves thicker
             myCurve1.Line.Width = 1.0F;
-            myCurve2.Line.Width = 1.0F;
+          //  myCurve2.Line.Width = 1.0F;
             //myCurve3.Line.Width = 1.0F;
             //myCurve.Line.Width = 1.0F;
 
             // Increase the symbol sizes, and fill them with solid white
             myCurve1.Symbol.Size = 2.0F;
-            myCurve2.Symbol.Size = 2.0F;
+          //  myCurve2.Symbol.Size = 2.0F;
             //myCurve3.Symbol.Size = 2.0F;
             //myCurve.Symbol.Size = 2.0F;
 
             myCurve1.Symbol.Fill = new Fill(Color.White);
-            myCurve2.Symbol.Fill = new Fill(Color.White);
+           // myCurve2.Symbol.Fill = new Fill(Color.White);
             //myCurve3.Symbol.Fill = new Fill(Color.White);
             //myCurve.Symbol.Fill = new Fill(Color.White);
 
             // Add a background gradient fill to the axis frame
             myPane.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                 Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -214,13 +224,13 @@ namespace SocialEcoTrendAnalyze
             if (pConn.State == ConnectionState.Closed)
                 pConn.Open();
             OleDbCommand cmd = pConn.CreateCommand();
-            cmd.CommandText = "Select id,年份,年末耕地面积,土地面积,城市建成区面积,城镇化率 From YNTable";
+            cmd.CommandText = "Select id,年份,年末耕地面积,土地面积,城市建成区面积,城镇化率 From Land";
             OleDbDataAdapter oda = new OleDbDataAdapter(cmd);
             DataSet ds = new DataSet();
-            oda.Fill(ds, "YNTable");
+            oda.Fill(ds, "Land");
             if (dt == null)
                 dt = new DataTable();
-            dt = ds.Tables["YNTable"];
+            dt = ds.Tables["Land"];
         }
 
         private void btnSimulate_Click(object sender, EventArgs e)
@@ -242,7 +252,7 @@ namespace SocialEcoTrendAnalyze
                     dt.Rows.RemoveAt(i);
                     //list.RemoveAt(i);
                     list1.RemoveAt(i);
-                    list2.RemoveAt(i);
+                   // list2.RemoveAt(i);
                     //list3.RemoveAt(i);
                     lista.RemoveAt(i);
                     listb.RemoveAt(i);
@@ -300,7 +310,7 @@ namespace SocialEcoTrendAnalyze
 
                 //list.Add(x, y);
                 list1.Add(x, y1);
-                list2.Add(x, y3);
+              //  list2.Add(x, y3);
                 //list3.Add(x, y3);
                 lista.Add(x, y3);
                 listb.Add(x, y2);
@@ -339,7 +349,7 @@ namespace SocialEcoTrendAnalyze
             {
                 //list.RemoveAt(1);
                 list1.RemoveAt(1);
-                list2.RemoveAt(1);
+               // list2.RemoveAt(1);
                 //list3.RemoveAt(1);
                 lista.RemoveAt(1);
                 listb.RemoveAt(1);
@@ -359,7 +369,7 @@ namespace SocialEcoTrendAnalyze
                 //double y5 = double.Parse(dt.Rows[i]["gdp"].ToString().Trim());
                 //list.Add(x, y);
                 list1.Add(x, y3);
-                list2.Add(x, y1);
+               // list2.Add(x, y1);
                 //list3.Add(x, y3);
                 lista.Add(x, y1);//非农业人口
                 listb.Add(x, y2);//人口自然增长率
@@ -381,6 +391,11 @@ namespace SocialEcoTrendAnalyze
                 //this.zedGraphControl4.Refresh();
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

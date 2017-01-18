@@ -65,13 +65,13 @@ namespace SocialEcoTrendAnalyze
             if (pConn.State == ConnectionState.Closed)
                 pConn.Open();
             OleDbCommand cmd = pConn.CreateCommand();
-            cmd.CommandText = "Select id,年份,非农业人口,总人口,人口自然增长率,生产总值 ,人均生产总值,年末耕地面积,土地面积,城市建成区面积,城镇化率 From YNTable";
+            cmd.CommandText = "Select id,年份,非农业人口,总人口,人口自然增长率,农业人口 From People";
             OleDbDataAdapter oda = new OleDbDataAdapter(cmd);
             DataSet ds = new DataSet();
-            oda.Fill(ds, "YNTable"); 
+            oda.Fill(ds, "People"); 
             if (dt == null)
                 dt = new DataTable();
-            dt = ds.Tables["YNTable"];
+            dt = ds.Tables["People"];
         }
 
         private void CreateMutiLineChart()
@@ -88,14 +88,17 @@ namespace SocialEcoTrendAnalyze
             GraphPane myPane1 = zedGraphControl2.GraphPane;
             myPane1.CurveList.Clear();
             myPane1.GraphObjList.Clear();
-            myPane1.Title.Text = "非农业人口";
+            myPane1.Title.Text = "农业人口";
+            myPane1.Title.FontSpec.Size = 25;
             myPane1.XAxis.Title.Text = "年份";
             myPane1.YAxis.Title.Text = "人口  人";
+            myPane1.YAxis.Title.FontSpec.Size = 25;
             lista = new PointPairList();
             listb = new PointPairList();
-            myCurvea = myPane1.AddCurve("非农业人口",
+            myCurvea = myPane1.AddCurve("农业人口",
                lista, Color.Red, SymbolType.Diamond);
             myPane1.Title.FontSpec.FontColor = Color.Green;
+           
 
             // Add gridlines to the plot, and make them gray
             myPane1.XAxis.MajorGrid.IsVisible = true;
@@ -104,6 +107,7 @@ namespace SocialEcoTrendAnalyze
             myPane1.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane1.Legend.FontSpec.Size = 25;
             myPane1.Legend.Position = ZedGraph.LegendPos.Bottom;
             myCurvea.Line.Width = 1.0F;
 
@@ -113,7 +117,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane1.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText1 = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -133,9 +137,10 @@ namespace SocialEcoTrendAnalyze
             myPane2.CurveList.Clear();
             myPane2.GraphObjList.Clear();
             myPane2.Title.Text = "人口自然增长率";
+            myPane2.Title.FontSpec.Size = 25;
             myPane2.XAxis.Title.Text = "年份";
             myPane2.YAxis.Title.Text = "增长率  ‰";
-
+            myPane2.YAxis.Title.FontSpec.Size = 25;
             listb = new PointPairList();
             myCurveb = myPane2.AddCurve("人口自然增长率",
                listb, Color.Blue, SymbolType.Diamond);
@@ -148,6 +153,7 @@ namespace SocialEcoTrendAnalyze
             myPane2.YAxis.MajorGrid.Color = Color.LightGray;
 
             // Move the legend location
+            myPane2.Legend.FontSpec.Size = 25;
             myPane2.Legend.Position = ZedGraph.LegendPos.Bottom;
             myCurveb.Line.Width = 1.0F;
 
@@ -157,7 +163,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane2.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+               Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText2 = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -175,9 +181,10 @@ namespace SocialEcoTrendAnalyze
           
             // Set up the title and axis labels
             myPane.Title.Text = "人口增长趋势";
+           // myPane.Title.FontSpec.Size = 25;
 			myPane.XAxis.Title.Text = "年份";
 			myPane.YAxis.Title.Text = "人口  人";
-
+           // myPane.YAxis.Title.FontSpec.Size = 25;
             //PointPairList list1 = null, list3 = null, list2 = null, list = null;
 			// Make up some data arrays based on the Sine function
 			list1 = new PointPairList();
@@ -226,7 +233,7 @@ namespace SocialEcoTrendAnalyze
 
             // Add a background gradient fill to the axis frame
             myPane.Chart.Fill = new Fill(Color.White,
-                Color.FromArgb(255, 255, 210), -45F);
+                Color.White, -45F);
 
             // Add a caption and an arrow
             TextObj myText = new TextObj("Interesting\nPoint", 230F, 70F);
@@ -262,9 +269,11 @@ namespace SocialEcoTrendAnalyze
                 double y1 = double.Parse(dt.Rows[i]["非农业人口"].ToString().Trim());
                 double y3 = double.Parse(dt.Rows[i]["总人口"].ToString().Trim());
                 double y2 = double.Parse(dt.Rows[i]["人口自然增长率"].ToString().Trim());
+                double y4 = double.Parse(dt.Rows[i]["农业人口"].ToString().Trim());
+
                 list1.Add(x, y3);
                 list2.Add(x, y1);
-                lista.Add(x, y1);//非农业人口
+                lista.Add(x, y4);//农业人口
                 listb.Add(x, y2);//人口自然增长率
              
                 zedGraphControl1.GraphPane.XAxis.Scale.MaxAuto = true;
@@ -337,7 +346,7 @@ namespace SocialEcoTrendAnalyze
                 dr["年份"] = int.Parse(dt.Rows[iRowMaxIndex]["年份"].ToString().Trim()) + 1;
                // dr["总人口"] = double.Parse(dt.Rows[iRowMaxIndex]["总人口"].ToString().Trim()) * (1 + dRate);
                 dr["总人口"] = double.Parse(dt.Rows[iRowMaxIndex]["总人口"].ToString().Trim()) * (1 + 0.0029325);
-
+                dr["农业人口"] = double.Parse(dt.Rows[iRowMaxIndex]["农业人口"].ToString().Trim()) * (1 + dRate);
                 dr["非农业人口"] = double.Parse(dt.Rows[iRowMaxIndex]["非农业人口"].ToString().Trim()) * (1 + dRate);
                 dr["人口自然增长率"] = double.Parse(dt.Rows[iRowMaxIndex]["人口自然增长率"].ToString().Trim()) * (1 + dRate);
              
@@ -349,12 +358,13 @@ namespace SocialEcoTrendAnalyze
                 double y1 = double.Parse(dt.Rows[iRowMaxIndex]["总人口"].ToString().Trim());
                 double y3 = double.Parse(dt.Rows[iRowMaxIndex]["非农业人口"].ToString().Trim());
                 double y2 = double.Parse(dt.Rows[iRowMaxIndex]["人口自然增长率"].ToString().Trim());
+                double y4 = double.Parse(dt.Rows[iRowMaxIndex]["农业人口"].ToString().Trim());
             
                
                 list1.Add(x, y1);
                 list2.Add(x, y3);
               
-                lista.Add(x, y3);
+                lista.Add(x, y4);
                 listb.Add(x, y2);
               
                 zedGraphControl1.GraphPane.XAxis.Scale.MaxAuto = true;
@@ -397,7 +407,7 @@ namespace SocialEcoTrendAnalyze
         {
             ToolTip p = new ToolTip();
             p.ShowAlways = true;
-            p.SetToolTip(this.btnStart,"请先设置2010年的人口增长率,人口增长出现拐点的年份,人口模拟结束的年份,然后点击"+"模拟按钮，开始人口模拟。");
+            p.SetToolTip(this.btnStart,"人口模拟结束的年份为2020年,点击"+"模拟按钮，开始人口模拟。");
         }
 
         private void button1_Click(object sender, EventArgs e)

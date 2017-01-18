@@ -67,3 +67,4 @@ C:\Users\yang\Desktop\SocialEcoTrendAnalyze-1\SocialEcoTrendAnalyze-1\obj\Debug\
 C:\Users\yang\Desktop\SocialEcoTrendAnalyze-1\SocialEcoTrendAnalyze-1\obj\Debug\SocialEcoTrendAnalyze.csproj.GenerateResource.Cache
 C:\Users\yang\Desktop\SocialEcoTrendAnalyze-1\SocialEcoTrendAnalyze-1\obj\Debug\SocialEcoTrendAnalyze.dll
 C:\Users\yang\Desktop\SocialEcoTrendAnalyze-1\SocialEcoTrendAnalyze-1\obj\Debug\SocialEcoTrendAnalyze.pdb
+C:\Users\yang\Desktop\SocialEcoTrendAnalyze-1\SocialEcoTrendAnalyze-1\obj\Debug\SocialEcoTrendAnalyze.csprojResolveAssemblyReference.cache
