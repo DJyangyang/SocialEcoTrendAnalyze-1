@@ -261,7 +261,7 @@ namespace SocialEcoTrendAnalyze
             }
             //修改数据源dt中的值
             //id	year	gdp1	gdp2	gdp3	apop	napop	citypop	gdp	pop
-            double rate = 0.00207;
+            double rate = 0.00207;//变化率
             //try
             //{
             //    //rate = double.Parse(txtIncreaseRate.Text.Trim()) / 1000;
@@ -291,10 +291,10 @@ namespace SocialEcoTrendAnalyze
                 dr["id"] = int.Parse(dt.Rows[iRowMaxIndex]["id"].ToString().Trim()) + 1;
                 dr["年份"] = int.Parse(dt.Rows[iRowMaxIndex]["年份"].ToString().Trim()) + 1;
                 // dr["总人口"] = double.Parse(dt.Rows[iRowMaxIndex]["总人口"].ToString().Trim()) * (1 + dRate);
-                dr["年末耕地面积"] = double.Parse(dt.Rows[iRowMaxIndex]["年末耕地面积"].ToString().Trim()) * (1 + 0.0029325);
+                dr["年末耕地面积"] = double.Parse(dt.Rows[iRowMaxIndex]["年末耕地面积"].ToString().Trim()) * (1-0.014);
 
-                dr["城市建成区面积"] = double.Parse(dt.Rows[iRowMaxIndex]["城市建成区面积"].ToString().Trim()) * (1 + dRate);
-                dr["城镇化率"] = double.Parse(dt.Rows[iRowMaxIndex]["城镇化率"].ToString().Trim()) * (1 + dRate);
+                dr["城市建成区面积"] = double.Parse(dt.Rows[iRowMaxIndex]["城市建成区面积"].ToString().Trim()) * (1 + 0.039431);
+                dr["城镇化率"] = double.Parse(dt.Rows[iRowMaxIndex]["城镇化率"].ToString().Trim()) * (1 + 0.034685);
                 // dr["pop"] = double.Parse(dt.Rows[iRowMaxIndex]["pop"].ToString().Trim()) * (1 + dRate);
                 //dr["gdp"] = double.Parse(dt.Rows[iRowMaxIndex]["gdp"].ToString().Trim()) * (1 + dRate);
                 dt.Rows.Add(dr);
